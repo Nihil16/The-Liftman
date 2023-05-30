@@ -31,4 +31,7 @@ public class GameEvents : MonoBehaviour
     public delegate void OnRandomFloorDelegate();
     public static OnRandomFloorDelegate OnRandomFloor;
 
+    public delegate void OnPuzzleCompleteDelegate();
+    public static OnPuzzleCompleteDelegate OnPuzzleComplete;
+
 }

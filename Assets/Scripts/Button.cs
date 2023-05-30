@@ -34,7 +34,10 @@ public class Button : MonoBehaviour
             pressed = true;
             NewPos = new Vector3(NewPos.x, NewPos.y, NewPos.z - 0.015f);
             GameEvents.OnButtonPressed?.Invoke(Number);
-            
+            if (MonsterManager.MonsterHere == true)
+            {
+                GameEvents.OnPuzzleComplete?.Invoke();
+            }
             LeanTween.move(gameObject, NewPos, 0.2f).setEaseOutCubic().setOnComplete(this.Unpress);
             
         }

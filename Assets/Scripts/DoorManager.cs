@@ -68,35 +68,37 @@ public class DoorManager : MonoBehaviour
 
         else if (Open == false)
         {
-            if (Count == 1)
+            for (int Count = 1; Count <= 2; Count++)
             {
-                Door = LeftDoor;
-                Postion = Center;
-            }
-            if (Count == 2)
-            {
-                Door = RightDoor;
-                Postion = Center;
-            }
+                if (Count == 1)
+                {
+                    Door = LeftDoor;
+                    Postion = Center;
+                }
+                if (Count == 2)
+                {
+                    Door = RightDoor;
+                    Postion = Center;
+                }
 
-            int time = UnityEngine.Random.Range(1, 7);
+                int time = UnityEngine.Random.Range(1, 7);
 
-            if (time < 2) //Fast
-            {
-                int Random = UnityEngine.Random.Range(0, 2);
-                LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
+                if (time < 2) //Fast
+                {
+                    int Random = UnityEngine.Random.Range(0, 2);
+                    LeanTween.move(Door, Postion, Num).setEaseOutBack();
+                }
+                else if (time < 6) //Medium
+                {
+                    int Random = UnityEngine.Random.Range(0, 2);
+                    LeanTween.move(Door, Postion, Num).setEaseOutBack();
+                }
+                else if (time < 8) //Slow
+                {
+                    int Random = UnityEngine.Random.Range(0, 2);
+                    LeanTween.move(Door, Postion, Num).setEaseOutBack();
+                }
             }
-            else if (time < 6) //Medium
-            {
-                int Random = UnityEngine.Random.Range(0, 2);
-                LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
-            }
-            else if (time < 8) //Slow
-            {
-                int Random = UnityEngine.Random.Range(0, 2);
-                LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
-            }
-
         }
 
 

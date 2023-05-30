@@ -19,7 +19,8 @@ public class VoiceManager : MonoBehaviour
     void Awake()
     {
 
-       // StartCoroutine(PlayVoiceLine(2, 0));
+      // StartCoroutine(PlayVoiceLine(2, 0));
+
     }
 
 
@@ -69,6 +70,7 @@ public class VoiceManager : MonoBehaviour
                     StartCoroutine(PlayVoiceLine(10, 1));
                     break;
                 }
+
 
         }
     }

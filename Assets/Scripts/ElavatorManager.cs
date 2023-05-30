@@ -55,6 +55,7 @@ public class ElavatorManager : MonoBehaviour
 
     private void OnButtonPressed(int Number)
     {
+
         CurrentFloor = Number; //Set floor to number
 
         Buttons[Number - 1].GetComponent<MeshRenderer>().material = Materials[0]; //Changes the material
@@ -113,6 +114,9 @@ public class ElavatorManager : MonoBehaviour
 
     public void OnRandomFloor()
     {
+
+
+
         int Random = UnityEngine.Random.Range(1, 9);
         while (Random == CurrentFloor)
         {
