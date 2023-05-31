@@ -31,6 +31,8 @@ public class Monster : MonoBehaviour
         int Random = UnityEngine.Random.Range(2, 6);
         GameEvents.OnOpenDoor?.Invoke(Random, false);
 
+        GameEvents.OnOpenDoor?.Invoke(Random, false);
+
         GameEvents.OnLockButton.Invoke(false);
     }
     

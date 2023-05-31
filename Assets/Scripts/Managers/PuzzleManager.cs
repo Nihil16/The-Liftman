@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
-    public int Solution;
+    public static int Solution;
 
 
     private void OnEnable()
@@ -32,7 +32,7 @@ public class PuzzleManager : MonoBehaviour
         {
             Debug.Log("Correct");
         }
-        if (Answer == Solution)
+        if (Answer != Solution)
         {
             Debug.Log("Incorrect");
         }
