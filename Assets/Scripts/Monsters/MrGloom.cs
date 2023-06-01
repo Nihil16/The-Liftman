@@ -34,7 +34,12 @@ public class MrGloom : MonoBehaviour
 
     public void Blink()
     {
-        RightTop.transform.Rotate(-90.0f, -90.0f, 90.0f, Space.Self);
-        RightBot.transform.Rotate(-90.0f, 90.0f, -90.0f, Space.Self);
+        //close
+        RightTop.transform.rotation = new Quaternion(-0.25f, -0.25f, 0.25f, 360);
+        RightBot.transform.rotation = new Quaternion(-0.25f, 0.25f, -0.25f, 360);
+
+        //open
+        RightTop.transform.rotation = new Quaternion(0, -0.25f, 0.25f, 360);
+        RightBot.transform.rotation = new Quaternion(0, 0.25f, -0.25f, 360);
     }
 }   

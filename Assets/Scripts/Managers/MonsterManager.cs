@@ -31,7 +31,7 @@ public class MonsterManager : MonoBehaviour
             //else if (Random == 1) Instantiate(MonsterList[1]);
             //else if (Random == 2) Instantiate(MonsterList[2]);
 
-            Instantiate(MonsterList[1], this.transform.position, Quaternion.Euler(0, 220, 0));
+            //Instantiate(MonsterList[1], this.transform.position, Quaternion.Euler(0, 220, 0));
             GameEvents.OnHeartbeat?.Invoke(5);
         }
         
