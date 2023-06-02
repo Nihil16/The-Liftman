@@ -31,7 +31,8 @@ public class Monster : MonoBehaviour
         int Random = UnityEngine.Random.Range(2, 6);
         GameEvents.OnOpenDoor?.Invoke(Random, false);
 
-        GameEvents.OnOpenDoor?.Invoke(Random, false);
+        int Soloution = UnityEngine.Random.Range(1, 9);
+        GameEvents.OnDisplayPuzzle?.Invoke(Soloution);
 
         GameEvents.OnLockButton.Invoke(false);
     }
@@ -48,12 +49,7 @@ public class Monster : MonoBehaviour
     private IEnumerator Puzzle()
     {
         int Random = UnityEngine.Random.Range(5, 10);
-        if (gameObject  != null)
-        {
-            LeanTween.move(gameObject, new Vector3(-3.5f, 0, 0), Random).setEaseInQuint();
-        }
-        
-
+        LeanTween.move(gameObject, new Vector3(-3.5f, 0, 0), Random).setEaseInQuint();
         yield return new WaitForSeconds(Random + 1);
 
         int DoorClose = UnityEngine.Random.Range(3, 6);
@@ -61,7 +57,9 @@ public class Monster : MonoBehaviour
 
         yield return new WaitForSeconds(DoorClose + 1);
         MonsterManager.MonsterHere = false;
+
         GameEvents.OnRandomFloor?.Invoke();
+
         Destroy(gameObject);
     }
 }

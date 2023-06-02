@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class MrGloom : MonoBehaviour
 {
-
-    public GameObject RightTop;
-    public GameObject RightBot;
+    public Animator myAnim;
 
     private void OnEnable()
     {
@@ -18,28 +16,18 @@ public class MrGloom : MonoBehaviour
         GameEvents.OnDisplayPuzzle -= OnDisplayPuzzle;
     }
 
-    public void Start()
-    {
-        Blink();
-    }
-
     public void OnDisplayPuzzle(int Soloution)
     {
-        while(Soloution > 0)
+        for (int i = 0; i < Soloution; i++)
         {
-            
-            Soloution--;
+            Blink();
         }
     }
 
     public void Blink()
     {
-        //close
-        RightTop.transform.rotation = new Quaternion(-0.25f, -0.25f, 0.25f, 360);
-        RightBot.transform.rotation = new Quaternion(-0.25f, 0.25f, -0.25f, 360);
+        Debug.Log("Blink");
+        myAnim.Play("Blink");
 
-        //open
-        RightTop.transform.rotation = new Quaternion(0, -0.25f, 0.25f, 360);
-        RightBot.transform.rotation = new Quaternion(0, 0.25f, -0.25f, 360);
     }
 }   
