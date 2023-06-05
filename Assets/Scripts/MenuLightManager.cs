@@ -7,10 +7,15 @@ public class MenuLightManager : MonoBehaviour
     public GameObject RoofObject;
     public Light RoofLight;
 
+    //The roof object and light
+
     public List<Material> Materials;
 
-    private bool flicking = false;
+    //Has the color you see and black teture
 
+
+    //Doesn't change (from start) remnisance of and old script, keep for now
+    private bool flicking = false;
     public float Timer = 0f;
 
     private void Start()
