@@ -35,6 +35,19 @@ public class Monster : MonoBehaviour
     private void Update()
     {
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, StartRotation, transform.rotation.z));
+
+        //Smiley Start = 143
+        //Mr Gloom = 180
+        //
+
+
+
+        //Smiley = 187
+        //Bottom Hat = 142
+        //Mr Gloom = 220
+
+
+
         transform.position = (new Vector3(transform.position.x, StartPositon, transform.position.z));
     }
 
