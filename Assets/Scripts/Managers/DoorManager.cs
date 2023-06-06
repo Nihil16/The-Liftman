@@ -11,6 +11,7 @@ public class DoorManager : MonoBehaviour
     public Vector3 Right;
     public Vector3 Center;
 
+    public static bool DoorOpener;
 
     private Vector3 Postion;
     private GameObject Door;
@@ -29,80 +30,84 @@ public class DoorManager : MonoBehaviour
 
     public void OnOpenDoor(int Num, bool Open)
     {
-        if (Open == true)
+        if (DoorOpener == true)
         {
-            for (int Count = 1; Count <= 2; Count++)
+
+
+            if (Open == true)
             {
-                if (Open == true)
+                for (int Count = 1; Count <= 2; Count++)
+                {
+                    if (Open == true)
+                    {
+                        if (Count == 1)
+                        {
+                            Door = LeftDoor;
+                            Postion = Left;
+                        }
+                        if (Count == 2)
+                        {
+                            Door = RightDoor;
+                            Postion = Right;
+                        }
+
+                        if (Num < 5) //Fast
+                        {
+                            int Random = UnityEngine.Random.Range(0, 2);
+                            LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
+                        }
+                        else if (Num < 8) //Medium
+                        {
+                            int Random = UnityEngine.Random.Range(0, 2);
+                            LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
+                        }
+                        else if (Num <= 11) //Slow
+                        {
+                            int Random = UnityEngine.Random.Range(0, 2);
+                            LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
+                        }
+                    }
+                }
+
+            }
+
+            else if (Open == false)
+            {
+                for (int Count = 1; Count <= 2; Count++)
                 {
                     if (Count == 1)
                     {
                         Door = LeftDoor;
-                        Postion = Left;
+                        Postion = Center;
                     }
                     if (Count == 2)
                     {
                         Door = RightDoor;
-                        Postion = Right;
+                        Postion = Center;
                     }
 
-                    if (Num < 5) //Fast
+                    int time = UnityEngine.Random.Range(1, 7);
+
+                    if (time < 2) //Fast
                     {
                         int Random = UnityEngine.Random.Range(0, 2);
-                        LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
+                        LeanTween.move(Door, Postion, Num).setEaseOutBack();
                     }
-                    else if (Num < 8) //Medium
+                    else if (time < 6) //Medium
                     {
                         int Random = UnityEngine.Random.Range(0, 2);
-                        LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
+                        LeanTween.move(Door, Postion, Num).setEaseOutBack();
                     }
-                    else if (Num <= 11) //Slow
+                    else if (time < 8) //Slow
                     {
                         int Random = UnityEngine.Random.Range(0, 2);
-                        LeanTween.move(Door, Postion, Num).setEaseOutBack().setOnComplete(this.OpenDoorChecker);
+                        LeanTween.move(Door, Postion, Num).setEaseOutBack();
                     }
                 }
             }
 
+
         }
-
-        else if (Open == false)
-        {
-            for (int Count = 1; Count <= 2; Count++)
-            {
-                if (Count == 1)
-                {
-                    Door = LeftDoor;
-                    Postion = Center;
-                }
-                if (Count == 2)
-                {
-                    Door = RightDoor;
-                    Postion = Center;
-                }
-
-                int time = UnityEngine.Random.Range(1, 7);
-
-                if (time < 2) //Fast
-                {
-                    int Random = UnityEngine.Random.Range(0, 2);
-                    LeanTween.move(Door, Postion, Num).setEaseOutBack();
-                }
-                else if (time < 6) //Medium
-                {
-                    int Random = UnityEngine.Random.Range(0, 2);
-                    LeanTween.move(Door, Postion, Num).setEaseOutBack();
-                }
-                else if (time < 8) //Slow
-                {
-                    int Random = UnityEngine.Random.Range(0, 2);
-                    LeanTween.move(Door, Postion, Num).setEaseOutBack();
-                }
-            }
-        }
-
-
-
 
 
     }

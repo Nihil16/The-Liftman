@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MrGloom : MonoBehaviour
 {
     public Animator myAnim;
+    public int Count = 0;
 
     private void OnEnable()
     {
@@ -18,16 +20,20 @@ public class MrGloom : MonoBehaviour
 
     public void OnDisplayPuzzle(int Soloution)
     {
-        for (int i = 0; i < Soloution; i++)
-        {
-            Blink();
-        }
+        StartCoroutine(Blink(Soloution));
     }
 
-    public void Blink()
+
+
+
+    private IEnumerator Blink(int Soloution)
     {
-        Debug.Log("Blink");
-        myAnim.Play("Blink");
+
+        for (int i = 0; i < Soloution; i++)
+        {
+            myAnim.SetTrigger("Blink");
+            yield return new WaitForSeconds(1.2f);
+        }
 
     }
 }   

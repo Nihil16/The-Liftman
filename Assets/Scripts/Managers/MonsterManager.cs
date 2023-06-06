@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MonsterManager : MonoBehaviour
@@ -16,11 +17,7 @@ public class MonsterManager : MonoBehaviour
         GameEvents.OnMonsterSummon -= OnMonsterSummon;
     }
 
-    private void Start()
-    {
-        
 
-    }
 
     void OnMonsterSummon()
     {
@@ -31,7 +28,7 @@ public class MonsterManager : MonoBehaviour
             //else if (Random == 1) Instantiate(MonsterList[1]);
             //else if (Random == 2) Instantiate(MonsterList[2]);
 
-            Instantiate(MonsterList[0], this.transform.position, Quaternion.Euler(0, 220, 0));
+            Instantiate(MonsterList[1], this.transform.position, quaternion.identity);
             //GameEvents.OnHeartbeat?.Invoke(5);
         }
         

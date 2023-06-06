@@ -14,25 +14,16 @@ public class VoiceManager : MonoBehaviour
 
     public AudioClip[] IntroAL;
 
-
-
-    void Awake()
-    {
-
-      // StartCoroutine(PlayVoiceLine(2, 0));
-
-    }
-
-
-
     private void OnEnable()
     {
         GameEvents.OnButtonPressed += OnButtonPressed;
+        GameEvents.OnPlayAudio += OnPlayAudio;
     }
 
     private void OnDisable()
     {
         GameEvents.OnButtonPressed -= OnButtonPressed;
+        GameEvents.OnPlayAudio -= OnPlayAudio;
     }
 
     private void OnButtonPressed(int Number)
@@ -40,38 +31,30 @@ public class VoiceManager : MonoBehaviour
 
     }
 
+    private void OnPlayAudio(int Num)
+    {
+        //StartCoroutine(PlayVoiceLine(0, Num));
+    }
+
+
+
+
+
     private IEnumerator PlayVoiceLine(int BeforeSeconds, int ID)
     {
-        Debug.Log("Play Voice Line" + ID);
         AudioSource.Pause();
+
         CurrentID = ID;
         AudioSource.clip = IntroAL[ID];
 
         yield return new WaitForSeconds(BeforeSeconds);
-        IsTalking = true;
 
+        IsTalking = true;
         AudioSource.Play();
 
         AudioClip clip = AudioSource.clip;
-
         yield return new WaitForSeconds(clip.length);
+
         Debug.Log("Finishing Voice Line" + ID);
-        VoiceDone(ID);
-
-    }
-
-    private void VoiceDone(int ID)
-    {
-        StopAllCoroutines();
-        switch (ID)
-        {
-            case 0: //After 10 Seconds Plays "Pick a Button"
-                {
-                    StartCoroutine(PlayVoiceLine(10, 1));
-                    break;
-                }
-
-
-        }
     }
 }

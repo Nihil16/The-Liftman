@@ -37,4 +37,6 @@ public class GameEvents : MonoBehaviour
     public delegate void OnDisplayPuzzleDelegate(int Soloution);
     public static OnDisplayPuzzleDelegate OnDisplayPuzzle;
 
+    public delegate void OnPlayAudioDelegate(int Num);
+    public static OnPlayAudioDelegate OnPlayAudio;
 }

@@ -6,6 +6,10 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float StartRotation;
+
+   // [Range (0f, 1f)]
+    public float StartPositon;
 
     private void OnEnable()
     {
@@ -20,11 +24,20 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
+        
         MonsterManager.MonsterHere = true;
         int Random = UnityEngine.Random.Range(5, 10);
         LeanTween.move(this.gameObject, new Vector3 (0,0,0), Random).setEaseInQuint().setOnComplete(this.Arrived);;
 
     }
+
+
+    private void Update()
+    {
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, StartRotation, transform.rotation.z));
+        transform.position = (new Vector3(transform.position.x, StartPositon, transform.position.z));
+    }
+
 
     public void Arrived()
     {

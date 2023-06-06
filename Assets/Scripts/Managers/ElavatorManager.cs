@@ -25,7 +25,8 @@ public class ElavatorManager : MonoBehaviour
     private void Start()
     {
         CurrentFloor = 1; //Starting floor
-
+        MonsterManager.MonsterHere = true;
+        DoorManager.DoorOpener = false;
         StartCoroutine(Starter());
     }
 
@@ -34,9 +35,12 @@ public class ElavatorManager : MonoBehaviour
     {
         GameEvents.OnLockButton?.Invoke(true);
 
+        MonsterManager.MonsterHere = false;
+        DoorManager.DoorOpener = true;
+        GameEvents.OnRandomFloor?.Invoke();
         yield return new WaitForSeconds(5f);
 
-        GameEvents.OnRandomFloor?.Invoke();
+        //GameEvents.OnPlayAudio?.Invoke(0);
     }
 
     private void OnEnable()
@@ -95,7 +99,7 @@ public class ElavatorManager : MonoBehaviour
     }
     public void Arrived() //Spawns a monster after the floor is arrive.
     {
-        int Random = UnityEngine.Random.Range(3, 10);
+        int Random = UnityEngine.Random.Range(3, 5);
         GameEvents.OnOpenDoor?.Invoke(Random, true);
 
 
