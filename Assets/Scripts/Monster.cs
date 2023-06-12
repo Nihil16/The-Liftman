@@ -38,7 +38,7 @@ public class Monster : MonoBehaviour
 
         //Smiley Start = 143
         //Mr Gloom = 180
-        //
+        //Bottom Hat = -230
 
 
 
