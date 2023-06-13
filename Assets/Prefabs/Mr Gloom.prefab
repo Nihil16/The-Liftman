@@ -134,7 +134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3185aa5a3e6bf7d428bc741a4370a65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartRotation: 220
+  StartRotation: 160
+  FaceRotation: 220
+  EndRotation: 0
+  StartPositon: 0
 --- !u!114 &8142826603311307168
 MonoBehaviour:
   m_ObjectHideFlags: 0

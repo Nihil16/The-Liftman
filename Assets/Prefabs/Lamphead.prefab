@@ -1027,6 +1027,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4070586236176856725}
+  - component: {fileID: -8557614783092248919}
   m_Layer: 0
   m_Name: Lamphead
   m_TagString: Untagged
@@ -1054,6 +1055,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8557614783092248919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690260304464849967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3185aa5a3e6bf7d428bc741a4370a65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartRotation: -90
+  FaceRotation: -45
+  EndRotation: 90
 --- !u!1 &4819407113715474739
 GameObject:
   m_ObjectHideFlags: 0

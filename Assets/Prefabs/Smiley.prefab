@@ -6662,7 +6662,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3185aa5a3e6bf7d428bc741a4370a65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartRotation: 187.77
+  StartRotation: 150
+  FaceRotation: 180
+  EndRotation: 0
   StartPositon: 0
 --- !u!1 &9220101235492360853
 GameObject:

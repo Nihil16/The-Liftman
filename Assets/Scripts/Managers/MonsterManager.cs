@@ -23,13 +23,15 @@ public class MonsterManager : MonoBehaviour
     {
         if (MonsterHere == false)
         {
-            //int Random = UnityEngine.Random.Range(0, 2);
+            int Random = UnityEngine.Random.Range(0, 5);
             //if (Random == 0) Instantiate(MonsterList[0], new Vector3(0, 0, 0), Quaternion.identity);
             //else if (Random == 1) Instantiate(MonsterList[1]);
             //else if (Random == 2) Instantiate(MonsterList[2]);
 
-            Instantiate(MonsterList[1], this.transform.position, quaternion.identity);
+           Instantiate(MonsterList[Random], this.transform.position, quaternion.identity);
+            //monster.transform.position = new Vector3(0, 0, 0);
             //GameEvents.OnHeartbeat?.Invoke(5);
+           
         }
         
 

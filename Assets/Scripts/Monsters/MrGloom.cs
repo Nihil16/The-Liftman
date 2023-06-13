@@ -18,9 +18,10 @@ public class MrGloom : MonoBehaviour
         GameEvents.OnDisplayPuzzle -= OnDisplayPuzzle;
     }
 
-    public void OnDisplayPuzzle(int Soloution)
+    public void OnDisplayPuzzle()
     {
-        StartCoroutine(Blink(Soloution));
+        StartCoroutine(Blink(PuzzleManager.Solution));
+       
     }
 
 

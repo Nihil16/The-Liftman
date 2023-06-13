@@ -7,9 +7,11 @@ public class Monster : MonoBehaviour
 {
     // Start is called before the first frame update
     public float StartRotation;
+    public float FaceRotation;
+    public float EndRotation;
 
    // [Range (0f, 1f)]
-    public float StartPositon;
+    public static float StartPositon;
 
     private void OnEnable()
     {
@@ -24,41 +26,58 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
-        
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, StartRotation, transform.rotation.z));
         MonsterManager.MonsterHere = true;
         int Random = UnityEngine.Random.Range(5, 10);
-        LeanTween.move(this.gameObject, new Vector3 (0,0,0), Random).setEaseInQuint().setOnComplete(this.Arrived);;
+        LeanTween.move(this.gameObject, new Vector3 (0, StartPositon, 0), Random).setEaseInQuint().setOnComplete(this.Arrived);;
 
     }
 
 
-    private void Update()
-    {
-        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, StartRotation, transform.rotation.z));
+        //START ROTATION
+        //MRGLOOM: 160
+        //BOTTOMHAT: -230
+        //SMILEY: 150
+        //CORY: 0
+        //HOODWINK: -90
+        //TWIRL: 0
 
-        //Smiley Start = 143
-        //Mr Gloom = 180
-        //Bottom Hat = -230
+        //FACE ROTATION
+        //MRGLOOM: 220
+        //BOTTOMHAT: -230
+        //SMILEY: 180
+        //CORY: 40
+        //HOODWINK: 40
+        //TWIRL: 9930.7, 9702, 9624, 9575
 
+        //END ROTATION
+        //MRGLOOM: 0
+        //BOTTOMHAT: -10
+        //SMILEY: 0
+        //CORY: 180
+        //HOODWINK: 90
+        //TWIRL: 0
 
-
-        //Smiley = 187
-        //Bottom Hat = 142
-        //Mr Gloom = 220
-
-
-
-        transform.position = (new Vector3(transform.position.x, StartPositon, transform.position.z));
-    }
+       
+        
+        //START POSITION
+        //MRGLOOM: 0
+        //BOTTOMHAT: -1.4
+        //BOTTOMHAT: 0
+        //SMILEY: 0
+        //CORY: 0.47
+        //HOODWINK: 0
+        //TWIRL: 0.47
 
 
     public void Arrived()
     {
+
         int Random = UnityEngine.Random.Range(2, 6);
         GameEvents.OnOpenDoor?.Invoke(Random, false);
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, FaceRotation, transform.rotation.z));
 
-        int Soloution = UnityEngine.Random.Range(1, 9);
-        GameEvents.OnDisplayPuzzle?.Invoke(Soloution);
+        GameEvents.OnDisplayPuzzle?.Invoke();
 
         GameEvents.OnLockButton.Invoke(false);
     }
@@ -74,6 +93,8 @@ public class Monster : MonoBehaviour
 
     private IEnumerator Puzzle()
     {
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, EndRotation, transform.rotation.z));
+
         int Random = UnityEngine.Random.Range(5, 10);
         LeanTween.move(gameObject, new Vector3(-3.5f, 0, 0), Random).setEaseInQuint();
         yield return new WaitForSeconds(Random + 1);

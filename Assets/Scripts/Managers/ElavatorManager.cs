@@ -78,6 +78,7 @@ public class ElavatorManager : MonoBehaviour
             if (Random == 0) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutBounce().setOnComplete(this.Arrived);
             else if (Random == 1) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutBack().setOnComplete(this.Arrived);
             else if (Random == 2) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutElastic().setOnComplete(this.Arrived);
+            
         }
         else if (TotalTime < 6) //Medium
         {
