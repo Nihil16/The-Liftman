@@ -44,6 +44,11 @@ GameObject:
   - component: {fileID: 6562974019322632102}
   - component: {fileID: 8058420117482685639}
   - component: {fileID: 7128255348176772692}
+  - component: {fileID: 3389362124305318832}
+  - component: {fileID: 1671618878}
+  - component: {fileID: 1671618877}
+  - component: {fileID: 1671618876}
+  - component: {fileID: 1671618875}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -146,14 +151,78 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747296524622196601}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_AngularDrag: 0
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3389362124305318832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747296524622196601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f34b99ddf479fe46ac15ded8b3366d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1671618878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747296524622196601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.020888379, y: 0.005779241, z: 0.0025274204}
+  m_Center: {x: 0.0010029428, y: -0.014478991, z: -0.011465563}
+--- !u!65 &1671618877
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747296524622196601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017711008, y: 0.007062525, z: 0.004520491}
+  m_Center: {x: 0.00013900286, y: 0.01449636, z: -0.00857479}
+--- !u!65 &1671618876
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747296524622196601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0065538003, y: 0.028625276, z: 0.0014520009}
+  m_Center: {x: 0.016363906, y: 0.00059122895, z: -0.010109027}
+--- !u!65 &1671618875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747296524622196601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0064072045, y: 0.027102228, z: 0.0043991534}
+  m_Center: {x: -0.014605089, y: 0.0020101168, z: -0.008635461}
 --- !u!1 &1943066159334808011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hat: {fileID: 747296524622196601}
   Spawnables:
-  - {fileID: 8915958066243798465, guid: 487f6b24dc6b5394e83c79eeaa943ea1, type: 3}
+  - {fileID: 4226006890765460008, guid: a1643f642441d904495aaa14a95a0882, type: 3}
   Spawnpoint: {fileID: 1498904148}
 --- !u!1 &4150562214466435614
 GameObject:

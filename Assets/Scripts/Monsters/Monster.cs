@@ -73,7 +73,7 @@ public class Monster : MonoBehaviour
     public void Arrived()
     {
 
-        int Random = UnityEngine.Random.Range(2, 6);
+        int Random = UnityEngine.Random.Range(1, 5);
         GameEvents.OnOpenDoor?.Invoke(Random, false);
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, FaceRotation, transform.rotation.z));
 
@@ -95,9 +95,9 @@ public class Monster : MonoBehaviour
     {
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, EndRotation, transform.rotation.z));
 
-        int Random = UnityEngine.Random.Range(5, 10);
-        LeanTween.move(gameObject, new Vector3(-3.5f, 0, 0), Random).setEaseInQuint();
-        yield return new WaitForSeconds(Random + 1);
+        int Random = UnityEngine.Random.Range(8, 12);
+        LeanTween.move(gameObject, new Vector3(-10f, 0, 0), Random).setEaseInQuint();
+        yield return new WaitForSeconds(Random/1.5f+1);
 
         int DoorClose = UnityEngine.Random.Range(3, 6);
         GameEvents.OnOpenDoor?.Invoke(DoorClose, false);

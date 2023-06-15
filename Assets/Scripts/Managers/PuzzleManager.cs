@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,6 +27,7 @@ public class PuzzleManager : MonoBehaviour
             Debug.Log($"solution is {Solution}, Current floor is {ElavatorManager.CurrentFloor}");
             if (Solution == ElavatorManager.CurrentFloor)
             {
+                Debug.Log($"solution was reset");
                 OnMonsterSummon();
             }
        
@@ -35,7 +36,7 @@ public class PuzzleManager : MonoBehaviour
 
     public void OnButtonPressed(int Answer)
     {
-        Debug.Log(Answer + "Answerrrr");
+        Debug.Log(Answer + "Answer");
         
 
         if (Answer == Solution)

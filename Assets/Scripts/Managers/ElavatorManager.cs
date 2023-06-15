@@ -100,7 +100,7 @@ public class ElavatorManager : MonoBehaviour
     }
     public void Arrived() //Spawns a monster after the floor is arrive.
     {
-        int Random = UnityEngine.Random.Range(3, 5);
+        int Random = UnityEngine.Random.Range(1, 3);
         GameEvents.OnOpenDoor?.Invoke(Random, true);
 
 
