@@ -24,11 +24,12 @@ public class Cory : MonoBehaviour
 
     private IEnumerator Snapping(int Soloution)
     {
-
-        myAnim.SetBool("SnappingAnim", true);
-        yield return new WaitForSeconds(Soloution);
-        myAnim.enabled = false;
-
+        
+        myAnim.SetTrigger("PuzzleSnap");
+        
+        yield return new WaitForSeconds(0.5f * Soloution);
+        
+        myAnim.speed = 0;
         Debug.Log("STOP");
     }
 }
