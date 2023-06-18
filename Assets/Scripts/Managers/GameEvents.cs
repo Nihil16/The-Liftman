@@ -19,6 +19,9 @@ public class GameEvents : MonoBehaviour
     public delegate void OnHeartbeatDelegate(int RandomNumber);
     public static OnHeartbeatDelegate OnHeartbeat;
 
+    public delegate void OnEngineDelegate(int Number);
+    public static OnEngineDelegate OnEngine;
+
     public delegate void OnOpenDoorDelegate(int Time, bool Open);
     public static OnOpenDoorDelegate OnOpenDoor;
 
@@ -39,4 +42,12 @@ public class GameEvents : MonoBehaviour
 
     public delegate void OnPlayAudioDelegate(int Num);
     public static OnPlayAudioDelegate OnPlayAudio;
+
+    public delegate void OnDestroyDelegate();
+    public static OnDestroyDelegate OnDestroy;
+
+    public delegate void ArriveDelegate();
+    public static ArriveDelegate OnArriveDelegate;
+
+
 }

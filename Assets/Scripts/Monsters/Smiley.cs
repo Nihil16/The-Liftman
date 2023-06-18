@@ -21,6 +21,7 @@ public class Smiley : MonoBehaviour
         {
             Teeth[i].SetActive(false);
         }
+
         for (int i = 0; i < PuzzleManager.Solution; i++)
         {
             Teeth[i].SetActive(true);

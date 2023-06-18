@@ -7,6 +7,8 @@ public class MonsterManager : MonoBehaviour
 {
     public List<GameObject> MonsterList;
     public static bool MonsterHere;
+    private int Random;
+    private int TempNum;
 
     private void OnEnable()
     {
@@ -23,24 +25,18 @@ public class MonsterManager : MonoBehaviour
     {
         if (MonsterHere == false)
         {
-            int Random = UnityEngine.Random.Range(0, 5);
-            //if (Random == 0) Instantiate(MonsterList[0], new Vector3(0, 0, 0), Quaternion.identity);
-            //else if (Random == 1) Instantiate(MonsterList[1]);
-            //else if (Random == 2) Instantiate(MonsterList[2]);
+            Random = UnityEngine.Random.Range(1, 6);
 
-           Instantiate(MonsterList[3], this.transform.position, quaternion.identity);
-            //monster.transform.position = new Vector3(0, 0, 0);
-            //GameEvents.OnHeartbeat?.Invoke(5);
-           
+            if (Random == TempNum)
+            {
+                OnMonsterSummon();
+                Debug.Log("Same Monster, CHANGED");
+            }
+            else
+            {
+                Instantiate(MonsterList[Random - 1], this.transform.position, quaternion.identity);
+                Random = TempNum;
+            }
         }
-        
-
-
-
     }
-
-
-
-
-
 }

@@ -78,7 +78,8 @@ public class ElavatorManager : MonoBehaviour
             if (Random == 0) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutBounce().setOnComplete(this.Arrived);
             else if (Random == 1) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutBack().setOnComplete(this.Arrived);
             else if (Random == 2) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutElastic().setOnComplete(this.Arrived);
-            
+            GameEvents.OnEngine?.Invoke(4);
+
         }
         else if (TotalTime < 6) //Medium
         {
@@ -86,6 +87,7 @@ public class ElavatorManager : MonoBehaviour
             if (Random == 0) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutQuart().setOnComplete(this.Arrived);
             else if (Random == 1) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutExpo().setOnComplete(this.Arrived);
             else if (Random == 2) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutCubic().setOnComplete(this.Arrived);
+            GameEvents.OnEngine?.Invoke(3);
         }
         else if (TotalTime < 26) //Slow
         {
@@ -93,6 +95,7 @@ public class ElavatorManager : MonoBehaviour
             if (Random == 0) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInQuint().setOnComplete(this.Arrived);
             else if (Random == 1) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInOutQuart().setOnComplete(this.Arrived);
             else if (Random == 2) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInOutExpo().setOnComplete(this.Arrived);
+            GameEvents.OnEngine?.Invoke(2);
         }
 
 
@@ -105,9 +108,9 @@ public class ElavatorManager : MonoBehaviour
 
 
         GameEvents.OnMonsterSummon?.Invoke();
-
-
-
+        GameEvents.OnEngine?.Invoke(1);
+        GameEvents.OnArriveDelegate?.Invoke();
+  
         Buttons[CurrentFloor - 1].GetComponent<MeshRenderer>().material = Materials[1]; //Change the button back
     }
 

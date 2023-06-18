@@ -21,8 +21,8 @@ public class Hoodwink : MonoBehaviour
     public void OnDisplayPuzzle()
     {
         Spawnable.transform.parent = null;
-        int Random = UnityEngine.Random.Range(0, 9);
-        Instantiate(NumberList[PuzzleManager.Solution-1], PostionList[Random].transform.position, Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z)));
+
+        GenorateNumber();
 
         StartCoroutine(Loop());
 
@@ -34,9 +34,15 @@ public class Hoodwink : MonoBehaviour
         {
             LeanTween.rotateAround(gameObject, Vector3.up, 360, 2.5f);
             yield return new WaitForSeconds(4f);
+            GenorateNumber();
         }
 
     }
 
-
+    private void GenorateNumber()
+    {
+        GameEvents.OnDestroy?.Invoke();
+        int Random = UnityEngine.Random.Range(0, 9);
+        Instantiate(NumberList[PuzzleManager.Solution - 1], PostionList[Random].transform.position, Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z)));
+    }
 }

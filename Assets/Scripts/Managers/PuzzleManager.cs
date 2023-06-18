@@ -22,7 +22,8 @@ public class PuzzleManager : MonoBehaviour
 
     public void OnMonsterSummon()
     {
-
+        if (MonsterManager.MonsterHere == false)
+        {
             Solution = UnityEngine.Random.Range(1, 9);
             Debug.Log($"solution is {Solution}, Current floor is {ElavatorManager.CurrentFloor}");
             if (Solution == ElavatorManager.CurrentFloor)
@@ -30,23 +31,26 @@ public class PuzzleManager : MonoBehaviour
                 Debug.Log($"solution was reset");
                 OnMonsterSummon();
             }
-       
+        }
         
     }
 
     public void OnButtonPressed(int Answer)
     {
         Debug.Log(Answer + "Answer");
-        
 
         if (Answer == Solution)
         {
+            ElevatorNoiseManager.CorrectFloor = true;
             Debug.Log("Correct");
         }
         if (Answer != Solution)
         {
+            ElevatorNoiseManager.CorrectFloor = false ;
             Debug.Log("Incorrect");
         }
+
+
     }
 
 
