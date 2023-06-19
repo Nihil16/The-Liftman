@@ -20,12 +20,11 @@ public class MonsterManager : MonoBehaviour
     }
 
 
-
     void OnMonsterSummon()
     {
         if (MonsterHere == false)
         {
-            Random = UnityEngine.Random.Range(1, 6);
+            Random = UnityEngine.Random.Range(0, 6);
 
             if (Random == TempNum)
             {
@@ -34,7 +33,8 @@ public class MonsterManager : MonoBehaviour
             }
             else
             {
-                Instantiate(MonsterList[Random - 1], this.transform.position, quaternion.identity);
+                Debug.Log(Random);
+                Instantiate(MonsterList[Random], this.transform.position, quaternion.identity);
                 Random = TempNum;
             }
         }
