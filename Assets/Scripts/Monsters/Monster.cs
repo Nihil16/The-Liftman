@@ -26,10 +26,14 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
+        ElevatorNoiseManager.intro = false;
+
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, StartRotation, transform.rotation.z));
         MonsterManager.MonsterHere = true;
         int Random = UnityEngine.Random.Range(5, 10);
         LeanTween.move(this.gameObject, new Vector3 (0, StartPositon, 0), Random).setEaseInQuint().setOnComplete(this.Arrived);;
+        StartCoroutine(Heartbeat());
+
 
     }
 
@@ -88,11 +92,13 @@ public class Monster : MonoBehaviour
     public void OnPuzzleComplete()
     {
         var temp = StartCoroutine(Puzzle());
+        GameEvents.OnHeartbeat?.Invoke(0);
     }
 
 
     private IEnumerator Puzzle()
     {
+        StopCoroutine(Heartbeat());
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, EndRotation, transform.rotation.z));
 
         int Random = UnityEngine.Random.Range(8, 12);
@@ -109,4 +115,22 @@ public class Monster : MonoBehaviour
 
         Destroy(gameObject);
     }
+
+
+
+
+    private IEnumerator Heartbeat()
+    {
+        GameEvents.OnHeartbeat?.Invoke(1);
+        yield return new WaitForSeconds(5);
+        GameEvents.OnHeartbeat?.Invoke(2);
+        yield return new WaitForSeconds(10);
+        GameEvents.OnHeartbeat?.Invoke(3);
+        yield return new WaitForSeconds(15);
+        GameEvents.OnHeartbeat?.Invoke(4);
+        yield return new WaitForSeconds(20);
+        GameEvents.OnHeartbeat?.Invoke(5);
+
+    }
+
 }

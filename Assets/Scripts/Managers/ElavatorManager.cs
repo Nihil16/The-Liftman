@@ -18,15 +18,14 @@ public class ElavatorManager : MonoBehaviour
     public List<Material> Materials;
 
 
-    private int TotalTime; //Total time that the elavtor will take to get to the next floor
+    private float TotalTime; //Total time that the elavtor will take to get to the next floor
     private bool pressed; //If the button is pressed (Changing material_
 
     public static int CurrentFloor; //What floor we are going to
     private void Start()
     {
         CurrentFloor = 1; //Starting floor
-        MonsterManager.MonsterHere = true;
-        DoorManager.DoorOpener = false;
+
         StartCoroutine(Starter());
     }
 
@@ -35,9 +34,9 @@ public class ElavatorManager : MonoBehaviour
     {
         GameEvents.OnLockButton?.Invoke(true);
 
-        MonsterManager.MonsterHere = false;
-        DoorManager.DoorOpener = true;
-        GameEvents.OnRandomFloor?.Invoke();
+        MonsterManager.MonsterHere = true;
+        DoorManager.DoorOpener = false;
+
         yield return new WaitForSeconds(5f);
 
         //GameEvents.OnPlayAudio?.Invoke(0);
@@ -66,8 +65,9 @@ public class ElavatorManager : MonoBehaviour
 
 
 
-        int SoundTime = UnityEngine.Random.Range(0, 1); //Genorating a fake value of audio. Usually be 0
+        float SoundTime = VoiceManager.VoiceLine;
         int AddTime = UnityEngine.Random.Range(1, 5); //Make it seem more dynamic
+
         TotalTime = AddTime + SoundTime; //Adds them
 
 
@@ -106,6 +106,10 @@ public class ElavatorManager : MonoBehaviour
         int Random = UnityEngine.Random.Range(1, 3);
         GameEvents.OnOpenDoor?.Invoke(Random, true);
 
+        if (MonsterManager.MonsterHere == true)
+        {
+            GameEvents.OnPuzzleComplete?.Invoke();
+        }
 
         GameEvents.OnMonsterSummon?.Invoke();
         GameEvents.OnEngine?.Invoke(1);

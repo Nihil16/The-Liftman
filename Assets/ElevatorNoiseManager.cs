@@ -9,6 +9,7 @@ public class ElevatorNoiseManager : MonoBehaviour
     public static bool CorrectFloor;
     public bool MonsterSpawning = true;
 
+    public static bool intro = true;
     private void OnEnable()
     {
         GameEvents.OnArriveDelegate += OnArriveDelegate;
@@ -21,7 +22,7 @@ public class ElevatorNoiseManager : MonoBehaviour
     private void OnArriveDelegate()
     {
 
-        if (MonsterSpawning == true)
+        if (MonsterSpawning == false && intro == false)
         {
 
             AudioSource.clip = Sounds[0];
@@ -43,7 +44,7 @@ public class ElevatorNoiseManager : MonoBehaviour
             AudioSource.pitch = 0.5f;
             AudioSource.clip = Sounds[1];
             AudioSource.Play();
-            MonsterSpawning = true;
+            MonsterSpawning = false;
         }
 
 

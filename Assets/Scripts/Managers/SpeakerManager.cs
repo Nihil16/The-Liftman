@@ -24,20 +24,26 @@ public class SpeakerManager : MonoBehaviour
 	}
 	IEnumerator Start()
 	{
-		audioSource.clip.GetData(clipSampleData, audioSource.timeSamples);
-		clipLoudness = 0f;
-		foreach (var sample in clipSampleData)
-		{
-			clipLoudness += Mathf.Abs(sample);
-		}
-
-
-		clipLoudness *= sizeFactor;
-		clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
-		cube.transform.localScale = new Vector3(clipLoudness, clipLoudness, clipLoudness);
 		yield return new WaitForSeconds(0.1f);
-		yield return StartCoroutine("Start");
-		
+		if (audioSource != null)
+		{
+			audioSource.clip.GetData(clipSampleData, audioSource.timeSamples);
+
+
+
+			clipLoudness = 0f;
+			foreach (var sample in clipSampleData)
+			{
+				clipLoudness += Mathf.Abs(sample);
+			}
+
+
+			clipLoudness *= sizeFactor;
+			clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
+			cube.transform.localScale = new Vector3(clipLoudness, clipLoudness, clipLoudness);
+			yield return new WaitForSeconds(0.1f);
+			yield return StartCoroutine("Start");
+		}
 	}
 	
 }

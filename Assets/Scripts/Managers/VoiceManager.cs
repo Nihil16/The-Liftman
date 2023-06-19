@@ -9,8 +9,9 @@ public class VoiceManager : MonoBehaviour
     public AudioSource AudioSource;
     public static bool IsTalking;
     private int CurrentID;
+    public static float VoiceLine;
 
-
+    private bool First = true;
 
     public AudioClip[] IntroAL;
 
@@ -28,33 +29,69 @@ public class VoiceManager : MonoBehaviour
 
     private void OnButtonPressed(int Number)
     {
+        if (First == true)
+        {
+            StopAllCoroutines();
 
+            StartCoroutine(PlayVoiceLine(0, 3));
+        First = false;
+        }
+    }
+    private void Start()
+    {
+        
+            StartCoroutine(PlayVoiceLine(4, 0));
+      
+        
     }
 
-    private void OnPlayAudio(int Num)
+
+    private void OnPlayAudio(int ID)
     {
-        //StartCoroutine(PlayVoiceLine(0, Num));
+        StartCoroutine(PlayVoiceLine(0, ID));
     }
 
-
-
-
-
-    private IEnumerator PlayVoiceLine(int BeforeSeconds, int ID)
+    private IEnumerator PlayVoiceLine(float BeforeSeconds, int ID)
     {
+
         AudioSource.Pause();
 
         CurrentID = ID;
         AudioSource.clip = IntroAL[ID];
+        AudioClip clip = AudioSource.clip;
+        VoiceLine = clip.length + BeforeSeconds;
 
         yield return new WaitForSeconds(BeforeSeconds);
 
         IsTalking = true;
         AudioSource.Play();
 
-        AudioClip clip = AudioSource.clip;
+
         yield return new WaitForSeconds(clip.length);
 
         Debug.Log("Finishing Voice Line" + ID);
+
+        if (ID == 0)
+        {
+            GameEvents.OnLockButton?.Invoke(false);
+        }
+        if (ID == 3)
+        {
+            StartCoroutine(PlayVoiceLine(0, 4));
+        }
+        if (ID == 4)
+        {
+            StartCoroutine(PlayVoiceLine(0, 5));
+            GameEvents.OnRandomFloor?.Invoke();
+            MonsterManager.MonsterHere = false;
+            DoorManager.DoorOpener = true;
+        }
+
+        yield return new WaitForSeconds(10);
+        if (ID == 0)
+        {
+            StartCoroutine(PlayVoiceLine(0, 1));
+        }
+
     }
 }
