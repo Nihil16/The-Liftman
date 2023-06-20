@@ -49,5 +49,9 @@ public class GameEvents : MonoBehaviour
     public delegate void ArriveDelegate();
     public static ArriveDelegate OnArriveDelegate;
 
+    public delegate void FloorDetectsDelegate(int Floor);
+    public static FloorDetectsDelegate OnFloorDetects;
 
+    public delegate void OnNotMovingDelegate();
+    public static OnNotMovingDelegate OnNotMoving;
 }

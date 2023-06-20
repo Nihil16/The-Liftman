@@ -69,8 +69,15 @@ public class ElavatorManager : MonoBehaviour
         int AddTime = UnityEngine.Random.Range(1, 5); //Make it seem more dynamic
 
         TotalTime = AddTime + SoundTime; //Adds them
-
-
+        
+        if (CurrentFloor > FloorNumber.NumberofFloor)
+        {
+            FloorNumber.Moving = 1;
+        }
+        else if (CurrentFloor < FloorNumber.NumberofFloor)
+        {
+            FloorNumber.Moving = 2;
+        }
 
         if (TotalTime < 3) //Fast
         {
@@ -103,6 +110,8 @@ public class ElavatorManager : MonoBehaviour
     }
     public void Arrived() //Spawns a monster after the floor is arrive.
     {
+        GameEvents.OnNotMoving?.Invoke();
+
         int Random = UnityEngine.Random.Range(1, 3);
         GameEvents.OnOpenDoor?.Invoke(Random, true);
 
@@ -114,7 +123,7 @@ public class ElavatorManager : MonoBehaviour
         GameEvents.OnMonsterSummon?.Invoke();
         GameEvents.OnEngine?.Invoke(1);
         GameEvents.OnArriveDelegate?.Invoke();
-  
+
         Buttons[CurrentFloor - 1].GetComponent<MeshRenderer>().material = Materials[1]; //Change the button back
     }
 
