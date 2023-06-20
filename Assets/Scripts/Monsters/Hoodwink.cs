@@ -43,6 +43,10 @@ public class Hoodwink : MonoBehaviour
     {
         GameEvents.OnDestroy?.Invoke();
         int Random = UnityEngine.Random.Range(0, 9);
-        Instantiate(NumberList[PuzzleManager.Solution - 1], PostionList[Random].transform.position, Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z)));
+        if (Spawnable  != null)
+        {
+            Instantiate(NumberList[PuzzleManager.Solution - 1], PostionList[Random].transform.position, Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z)));
+        }
+        
     }
 }
