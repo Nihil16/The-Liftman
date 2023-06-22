@@ -30,7 +30,7 @@ public class FloorNumber : MonoBehaviour
     }
     private void OnFloorDetects(int floor)
     {
-        Debug.Log("Test");
+        
         Number.text = (floor.ToString());
         NumberofFloor = floor;
         if (Moving == 0)

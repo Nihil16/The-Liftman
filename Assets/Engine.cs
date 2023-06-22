@@ -17,6 +17,7 @@ public class Engine : MonoBehaviour
     void Start()
     {
         Set();
+        GameEvents.OnEngine?.Invoke(1);
     }
 
     private void OnEnable()

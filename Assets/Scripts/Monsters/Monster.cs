@@ -79,7 +79,10 @@ public class Monster : MonoBehaviour
 
         int Random = UnityEngine.Random.Range(1, 5);
         GameEvents.OnOpenDoor?.Invoke(Random, false);
-        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, FaceRotation, transform.rotation.z));
+
+       
+        //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, FaceRotation, transform.rotation.z));
+        LeanTween.rotate(gameObject, new Vector3(transform.rotation.x, FaceRotation, transform.rotation.z), 2);
 
         GameEvents.OnDisplayPuzzle?.Invoke();
 
@@ -92,6 +95,7 @@ public class Monster : MonoBehaviour
     public void OnPuzzleComplete()
     {
         var temp = StartCoroutine(Puzzle());
+        StopCoroutine(Heartbeat());
         GameEvents.OnHeartbeat?.Invoke(0);
     }
 
@@ -99,8 +103,10 @@ public class Monster : MonoBehaviour
     private IEnumerator Puzzle()
     {
         StopCoroutine(Heartbeat());
-        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, EndRotation, transform.rotation.z));
 
+        
+        //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, EndRotation, transform.rotation.z));
+        LeanTween.rotate(gameObject, new Vector3(transform.rotation.x, EndRotation, transform.rotation.z), 2);
         int Random = UnityEngine.Random.Range(8, 12);
         LeanTween.move(gameObject, new Vector3(-10f, 0, 0), Random).setEaseInQuint();
         yield return new WaitForSeconds(Random/1.5f+1);
