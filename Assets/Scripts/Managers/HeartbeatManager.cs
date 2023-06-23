@@ -45,19 +45,19 @@ public class HeartbeatManager : MonoBehaviour
         }
         else if(Number == 2)
         {
-            NewNumVolume = 0.4f;
+            NewNumVolume = 0.3f;
             NewNumPitch = 1.1f;
             Set();
         }
         else if(Number == 3)
         {
-            NewNumVolume = 0.6f;
+            NewNumVolume = 0.4f;
             NewNumPitch = 1.3f;
             Set();
         }
         else if(Number == 4)
         {
-            NewNumVolume = 0.7f;
+            NewNumVolume = 0.5f;
             NewNumPitch = 1.5f;
             Set();
         }
@@ -65,7 +65,6 @@ public class HeartbeatManager : MonoBehaviour
         {
             NewNumVolume = 0.8f;
             NewNumPitch = 1.8f;
-
             Set();
         }
     }

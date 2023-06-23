@@ -10,15 +10,22 @@ public class Starter : MonoBehaviour
     {
         GameEvents.OnButtonPressed += OnButtonPressed;
         GameEvents.OnNotMoving += OnNotMoving;
+        GameEvents.OnRandomFloor += OnRandomFloor;
     }
 
     private void OnDisable()
     {
         GameEvents.OnButtonPressed -= OnButtonPressed;
         GameEvents.OnNotMoving -= OnNotMoving;
+        GameEvents.OnRandomFloor -= OnRandomFloor;
     }
 
     public void OnButtonPressed(int num)
+    {
+        audioSource.Play();
+    }
+
+    public void OnRandomFloor()
     {
         audioSource.Play();
     }
