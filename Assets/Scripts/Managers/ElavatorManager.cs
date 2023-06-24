@@ -82,18 +82,18 @@ public class ElavatorManager : MonoBehaviour
         if (TotalTime < 3) //Fast
         {
             int Random = UnityEngine.Random.Range(0, 2);
-            if (Random == 0) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutBounce().setOnComplete(this.Arrived);
-            else if (Random == 1) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutBack().setOnComplete(this.Arrived);
-            else if (Random == 2) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutElastic().setOnComplete(this.Arrived);
+            if (Random == 0) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInOutExpo().setOnComplete(this.Arrived);
+            else if (Random == 1) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInOutExpo().setOnComplete(this.Arrived);
+            else if (Random == 2) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInOutExpo().setOnComplete(this.Arrived);
             GameEvents.OnEngine?.Invoke(4);
 
         }
         else if (TotalTime < 6) //Medium
         {
             int Random = UnityEngine.Random.Range(0, 2);
-            if (Random == 0) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutQuart().setOnComplete(this.Arrived);
-            else if (Random == 1) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutExpo().setOnComplete(this.Arrived);
-            else if (Random == 2) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseOutCubic().setOnComplete(this.Arrived);
+            if (Random == 0) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInOutQuart().setOnComplete(this.Arrived);
+            else if (Random == 1) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInOutQuart().setOnComplete(this.Arrived);
+            else if (Random == 2) LeanTween.move(gameObject, listOfPosition[Number - 1], TotalTime).setEaseInOutQuart().setOnComplete(this.Arrived);
             GameEvents.OnEngine?.Invoke(3);
         }
         else if (TotalTime < 26) //Slow
