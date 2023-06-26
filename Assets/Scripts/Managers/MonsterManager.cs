@@ -27,6 +27,6 @@ public class MonsterManager : MonoBehaviour
             Count++;
         }
 
-        
+
     }
 }

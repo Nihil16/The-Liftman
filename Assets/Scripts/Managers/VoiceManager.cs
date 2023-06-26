@@ -33,8 +33,8 @@ public class VoiceManager : MonoBehaviour
         {
             StopAllCoroutines();
 
-            StartCoroutine(PlayVoiceLine(0, 3));
-        First = false;
+            StartCoroutine(PlayVoiceLine(0, 2));
+            First = false;
         }
     }
     private void Start()
@@ -75,19 +75,18 @@ public class VoiceManager : MonoBehaviour
         {
             GameEvents.OnLockButton?.Invoke(false);
         }
-        if (ID == 3)
+        if (ID == 2)  
         {
-            StartCoroutine(PlayVoiceLine(0, 4));
-        }
-        if (ID == 4)
-        {
-            StartCoroutine(PlayVoiceLine(0, 5));
+            yield return new WaitForSeconds(4);
+            StartCoroutine(PlayVoiceLine(0, 3));
             GameEvents.OnRandomFloor?.Invoke();
             MonsterManager.MonsterHere = false;
             DoorManager.DoorOpener = true;
         }
 
-        yield return new WaitForSeconds(10);
+
+
+            yield return new WaitForSeconds(10);
         if (ID == 0)
         {
             StartCoroutine(PlayVoiceLine(0, 1));

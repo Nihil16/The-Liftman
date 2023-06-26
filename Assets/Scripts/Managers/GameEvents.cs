@@ -54,4 +54,13 @@ public class GameEvents : MonoBehaviour
 
     public delegate void OnNotMovingDelegate();
     public static OnNotMovingDelegate OnNotMoving;
+
+    public delegate void OnHelpManagerDelegate(int Num);
+    public static OnHelpManagerDelegate OnHelpManager;
+
+    public delegate void OnDisplayHelpDelegate();
+    public static OnDisplayHelpDelegate OnDisplayHelp;
+
+    public delegate void OnCorySnapDelegate();
+    public static OnCorySnapDelegate OnCorySnap;
 }

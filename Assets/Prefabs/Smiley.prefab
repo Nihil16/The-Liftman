@@ -6668,6 +6668,7 @@ MonoBehaviour:
   StartRotation: 150
   FaceRotation: 180
   EndRotation: 0
+  MonsterNum: 0
 --- !u!114 &471067413604281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6691,6 +6692,7 @@ MonoBehaviour:
   - {fileID: 7229790725790004203}
   - {fileID: 7311983953112822470}
   myAnim: {fileID: 4251104604944200004}
+  Key: {fileID: 3967577336980254125}
 --- !u!95 &4251104604944200004
 Animator:
   serializedVersion: 4
@@ -6799,6 +6801,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00e510ca982969247a033df3bd86c8e9, type: 3}
+--- !u!1 &3967577336980254125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7117919926551347002, guid: 00e510ca982969247a033df3bd86c8e9, type: 3}
+  m_PrefabInstance: {fileID: 6181266238440559255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4342730345371236119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7605522974119306624, guid: 00e510ca982969247a033df3bd86c8e9, type: 3}

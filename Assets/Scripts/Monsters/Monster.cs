@@ -10,7 +10,11 @@ public class Monster : MonoBehaviour
     public float FaceRotation;
     public float EndRotation;
 
-   // [Range (0f, 1f)]
+    public int MonsterNum;
+
+    Coroutine lastRoutine = null;
+
+    // [Range (0f, 1f)]
     public static float StartPositon;
 
     private void OnEnable()
@@ -26,13 +30,18 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
+        HelpManager.CurrentMonster = MonsterNum;
+        GameEvents.OnDisplayHelp?.Invoke();
+
         ElevatorNoiseManager.intro = false;
 
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, StartRotation, transform.rotation.z));
         MonsterManager.MonsterHere = true;
         int Random = UnityEngine.Random.Range(5, 10);
         LeanTween.move(this.gameObject, new Vector3 (0, StartPositon, 0), Random).setEaseInQuint().setOnComplete(this.Arrived);;
-        StartCoroutine(Heartbeat());
+        lastRoutine = StartCoroutine(Heartbeat());
+       
+
 
 
     }
@@ -96,15 +105,18 @@ public class Monster : MonoBehaviour
     {
         var temp = StartCoroutine(Puzzle());
         StopCoroutine(Heartbeat());
+        StopCoroutine(lastRoutine);
+
         GameEvents.OnHeartbeat?.Invoke(0);
     }
 
 
     private IEnumerator Puzzle()
     {
+        Debug.Log("I should stop");
         StopCoroutine(Heartbeat());
+        StopCoroutine(lastRoutine);
 
-        
         //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, EndRotation, transform.rotation.z));
         LeanTween.rotate(gameObject, new Vector3(transform.rotation.x, EndRotation, transform.rotation.z), 2);
         int Random = UnityEngine.Random.Range(8, 12);
@@ -129,12 +141,16 @@ public class Monster : MonoBehaviour
     {
         GameEvents.OnHeartbeat?.Invoke(1);
         yield return new WaitForSeconds(5);
+        Debug.Log("I will not stop");
         GameEvents.OnHeartbeat?.Invoke(2);
         yield return new WaitForSeconds(10);
+        Debug.Log("I will not stop");
         GameEvents.OnHeartbeat?.Invoke(3);
         yield return new WaitForSeconds(15);
+        Debug.Log("I will not stop");
         GameEvents.OnHeartbeat?.Invoke(4);
         yield return new WaitForSeconds(20);
+        Debug.Log("I will not stop");
         GameEvents.OnHeartbeat?.Invoke(5);
 
     }

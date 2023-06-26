@@ -986,6 +986,7 @@ MonoBehaviour:
   StartRotation: 0
   FaceRotation: 9930.7
   EndRotation: 0
+  MonsterNum: 3
 --- !u!114 &-5876656044980548658
 MonoBehaviour:
   m_ObjectHideFlags: 0

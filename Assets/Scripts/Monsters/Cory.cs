@@ -30,6 +30,6 @@ public class Cory : MonoBehaviour
         yield return new WaitForSeconds(0.5f * Soloution);
         
         myAnim.speed = 0;
-        Debug.Log("STOP");
+     
     }
 }
