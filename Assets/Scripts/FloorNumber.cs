@@ -8,6 +8,9 @@ using static GameEvents;
 
 public class FloorNumber : MonoBehaviour
 {
+    public AudioSource AudioS;
+    public AudioClip clip;
+
     public static int Moving;
     public static int NumberofFloor;
 
@@ -28,6 +31,10 @@ public class FloorNumber : MonoBehaviour
         GameEvents.OnFloorDetects -= OnFloorDetects;
         GameEvents.OnNotMoving -= OnNotMoving;
     }
+    private void Start()
+    {
+        
+    }
     private void OnFloorDetects(int floor)
     {
         
@@ -41,13 +48,15 @@ public class FloorNumber : MonoBehaviour
         else if (Moving == 1)
         {
             Up.SetActive(true);
-            Down.SetActive(false);
+            Down.SetActive(false);    
+            AudioSource.PlayClipAtPoint(clip, new Vector3(0, 0, 0));
         }
         else if (Moving == 2) 
         { 
         
             Up.SetActive(false);
             Down.SetActive(true);
+            AudioSource.PlayClipAtPoint(clip, new Vector3(0, 0, 0));
         }
 
 

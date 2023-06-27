@@ -2322,6 +2322,7 @@ GameObject:
   - component: {fileID: -2863166136821629528}
   - component: {fileID: 6344397556314305332}
   - component: {fileID: 7343729187218384622}
+  - component: {fileID: -9075874824292127823}
   m_Layer: 0
   m_Name: Cory
   m_TagString: Untagged
@@ -2504,6 +2505,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-9075874824292127823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730013013166468317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871cb53d392420e4cb039bfcd4d648fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MonsterLiking: 0
 --- !u!1 &5826530166517229643
 GameObject:
   m_ObjectHideFlags: 0

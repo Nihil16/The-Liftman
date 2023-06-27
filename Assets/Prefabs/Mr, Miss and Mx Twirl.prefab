@@ -934,6 +934,7 @@ GameObject:
   - component: {fileID: 2015090358318326846}
   - component: {fileID: 5630014365642458890}
   - component: {fileID: -5876656044980548658}
+  - component: {fileID: 8583255389527369600}
   m_Layer: 0
   m_Name: Mr, Miss and Mx Twirl
   m_TagString: Untagged
@@ -1009,6 +1010,19 @@ MonoBehaviour:
   - {fileID: 7615013338920205832, guid: f8b564c650add3b4f9105521cb1c69ec, type: 3}
   - {fileID: 483555653600551541, guid: 6905a617ec501ff409b37cedcc5332a8, type: 3}
   - {fileID: 5911026573839578005, guid: 9b8b7008109e9b74c9d9fed34c277d44, type: 3}
+--- !u!114 &8583255389527369600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206079240002387588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871cb53d392420e4cb039bfcd4d648fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MonsterLiking: 0
 --- !u!1 &1676436983171062680
 GameObject:
   m_ObjectHideFlags: 0

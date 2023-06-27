@@ -128,7 +128,7 @@ public class DoorManager : MonoBehaviour
     public void Opened()
     {
         Checker = 0;
-        GameEvents.OnMonsterSummon?.Invoke();
+        //GameEvents.OnMonsterSummon?.Invoke();
     }
 
 

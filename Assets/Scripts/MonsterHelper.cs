@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelpManager : MonoBehaviour
+public class MonsterHelper : MonoBehaviour
 {
-    public static int CurrentMonster;
-    public List<int> MonsterLiking;
+    public int MonsterLiking;
 
     private void OnEnable()
     {
@@ -20,17 +19,17 @@ public class HelpManager : MonoBehaviour
     }
     void OnDisplayHelp()
     {
-        if((MonsterLiking[CurrentMonster] == 0))
+        if((MonsterLiking == 0))
         {
             Debug.Log("Intro");
            
         }
-        else if ((MonsterLiking[CurrentMonster] == -1))
+        else if ((MonsterLiking == -1))
         {
             Debug.Log("Helping");
 
         }
-        else if ((MonsterLiking[CurrentMonster] > 0))
+        else if ((MonsterLiking > 0))
         {
             Debug.Log("I Like you");
 
@@ -41,11 +40,11 @@ public class HelpManager : MonoBehaviour
 
         if (Num == -1)
         {
-            (MonsterLiking[CurrentMonster]) = Num;
+            (MonsterLiking) = -1;
         }
         else
         {
-            (MonsterLiking[CurrentMonster]) = (MonsterLiking[CurrentMonster]) +1    ;
+            (MonsterLiking) = (MonsterLiking) +1;
         }
     }
 

@@ -47,7 +47,7 @@ public class GameEvents : MonoBehaviour
     public static OnDestroyDelegate OnDestroy;
 
     public delegate void ArriveDelegate();
-    public static ArriveDelegate OnArriveDelegate;
+    public static ArriveDelegate OnArrive;
 
     public delegate void FloorDetectsDelegate(int Floor);
     public static FloorDetectsDelegate OnFloorDetects;
@@ -63,4 +63,7 @@ public class GameEvents : MonoBehaviour
 
     public delegate void OnCorySnapDelegate();
     public static OnCorySnapDelegate OnCorySnap;
+
+    public delegate void OnSendVoice(AudioClip clip);
+    public static OnSendVoice OnReceiveVoice;
 }

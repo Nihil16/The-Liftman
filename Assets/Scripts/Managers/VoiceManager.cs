@@ -10,6 +10,8 @@ public class VoiceManager : MonoBehaviour
     public static bool IsTalking;
     private int CurrentID;
     public static float VoiceLine;
+    public static bool StartGame = false;
+
 
     private bool First = true;
 
@@ -53,7 +55,7 @@ public class VoiceManager : MonoBehaviour
 
     private IEnumerator PlayVoiceLine(float BeforeSeconds, int ID)
     {
-
+       
         AudioSource.Pause();
 
         CurrentID = ID;
@@ -77,13 +79,18 @@ public class VoiceManager : MonoBehaviour
         }
         if (ID == 2)  
         {
-            yield return new WaitForSeconds(4);
+            Debug.Log("ID = 2");
             StartCoroutine(PlayVoiceLine(0, 3));
             GameEvents.OnRandomFloor?.Invoke();
             MonsterManager.MonsterHere = false;
             DoorManager.DoorOpener = true;
-        }
 
+        }
+        if(ID == 3) 
+        {
+            VoiceLine = 0;
+            StartGame = true;
+        }
 
 
             yield return new WaitForSeconds(10);

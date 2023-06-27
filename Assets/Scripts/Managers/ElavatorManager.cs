@@ -66,10 +66,14 @@ public class ElavatorManager : MonoBehaviour
 
 
         float SoundTime = VoiceManager.VoiceLine;
-        int AddTime = UnityEngine.Random.Range(1, 5); //Make it seem more dynamic
+        int AddTime = UnityEngine.Random.Range(5, 6); //Make it seem more dynamic
 
-        TotalTime = AddTime + SoundTime; //Adds them
-        
+        TotalTime =  SoundTime; //Adds them
+        if(VoiceManager.StartGame == true)
+        {
+            TotalTime = TotalTime + AddTime;
+        }
+
         if (CurrentFloor > FloorNumber.NumberofFloor)
         {
             FloorNumber.Moving = 1;
@@ -122,9 +126,11 @@ public class ElavatorManager : MonoBehaviour
 
         GameEvents.OnMonsterSummon?.Invoke();
         GameEvents.OnEngine?.Invoke(1);
-        GameEvents.OnArriveDelegate?.Invoke();
+        GameEvents.OnArrive?.Invoke();
 
         Buttons[CurrentFloor - 1].GetComponent<MeshRenderer>().material = Materials[1]; //Change the button back
+
+
     }
 
     public void OnMonsterLeft()

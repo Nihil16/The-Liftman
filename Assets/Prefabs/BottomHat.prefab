@@ -1067,6 +1067,7 @@ GameObject:
   - component: {fileID: 4570446493521741458}
   - component: {fileID: -4018526181365734968}
   - component: {fileID: 1468281745472159141}
+  - component: {fileID: 7460941281661769462}
   m_Layer: 0
   m_Name: BottomHat
   m_TagString: Untagged
@@ -1127,6 +1128,19 @@ MonoBehaviour:
   Spawnables:
   - {fileID: 4226006890765460008, guid: a1643f642441d904495aaa14a95a0882, type: 3}
   Spawnpoint: {fileID: 1498904148}
+--- !u!114 &7460941281661769462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3757880545887607848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871cb53d392420e4cb039bfcd4d648fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MonsterLiking: 0
 --- !u!1 &4150562214466435614
 GameObject:
   m_ObjectHideFlags: 0

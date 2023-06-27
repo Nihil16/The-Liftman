@@ -12,41 +12,18 @@ public class ElevatorNoiseManager : MonoBehaviour
     public static bool intro = true;
     private void OnEnable()
     {
-        GameEvents.OnArriveDelegate += OnArriveDelegate;
+        GameEvents.OnArrive += OnArriveDelegate;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnArriveDelegate -= OnArriveDelegate;
+        GameEvents.OnArrive -= OnArriveDelegate;
     }
     private void OnArriveDelegate()
     {
-
-        if (MonsterSpawning == false && intro == false)
-        {
-
-            AudioSource.clip = Sounds[0];
-            if (CorrectFloor == true)
-            {
-                AudioSource.pitch = 1f;
-            }
-            if (CorrectFloor == false)
-            {
-                AudioSource.pitch = 0.5f;
-            }
-
-            AudioSource.Play();
-            MonsterSpawning = false;
-
-        }
-        else
-        {
-            AudioSource.pitch = 0.5f;
-            AudioSource.clip = Sounds[1];
-            AudioSource.Play();
-            MonsterSpawning = false;
-        }
-
+        AudioSource.pitch = 0.5f;
+        AudioSource.clip = Sounds[1];
+        AudioSource.Play();
 
     }
 

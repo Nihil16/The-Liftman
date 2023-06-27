@@ -30,7 +30,6 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
-        HelpManager.CurrentMonster = MonsterNum;
         GameEvents.OnDisplayHelp?.Invoke();
 
         ElevatorNoiseManager.intro = false;
@@ -96,6 +95,8 @@ public class Monster : MonoBehaviour
         GameEvents.OnDisplayPuzzle?.Invoke();
 
         GameEvents.OnLockButton.Invoke(false);
+
+
     }
     
 
@@ -113,7 +114,6 @@ public class Monster : MonoBehaviour
 
     private IEnumerator Puzzle()
     {
-        Debug.Log("I should stop");
         StopCoroutine(Heartbeat());
         StopCoroutine(lastRoutine);
 
@@ -141,16 +141,12 @@ public class Monster : MonoBehaviour
     {
         GameEvents.OnHeartbeat?.Invoke(1);
         yield return new WaitForSeconds(5);
-        Debug.Log("I will not stop");
         GameEvents.OnHeartbeat?.Invoke(2);
         yield return new WaitForSeconds(10);
-        Debug.Log("I will not stop");
         GameEvents.OnHeartbeat?.Invoke(3);
         yield return new WaitForSeconds(15);
-        Debug.Log("I will not stop");
         GameEvents.OnHeartbeat?.Invoke(4);
         yield return new WaitForSeconds(20);
-        Debug.Log("I will not stop");
         GameEvents.OnHeartbeat?.Invoke(5);
 
     }
