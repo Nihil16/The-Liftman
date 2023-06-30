@@ -48,15 +48,15 @@ public class FloorNumber : MonoBehaviour
         else if (Moving == 1)
         {
             Up.SetActive(true);
-            Down.SetActive(false);    
-            AudioSource.PlayClipAtPoint(clip, new Vector3(0, 0, 0));
+            Down.SetActive(false);
+            AudioS.Play();
         }
         else if (Moving == 2) 
         { 
         
             Up.SetActive(false);
             Down.SetActive(true);
-            AudioSource.PlayClipAtPoint(clip, new Vector3(0, 0, 0));
+            AudioS.Play();
         }
 
 

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
+    public List<AudioClip> Correct;
+    public List<AudioClip> Incorrect;
+
     // Start is called before the first frame update
     public float StartRotation;
     public float FaceRotation;
@@ -30,19 +33,15 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
-        GameEvents.OnDisplayHelp?.Invoke();
+        
+        int Random = UnityEngine.Random.Range(5, 10);
+        LeanTween.move(this.gameObject, new Vector3(0, StartPositon, 0), Random).setEaseInQuint().setOnComplete(this.Arrived); ;
 
         ElevatorNoiseManager.intro = false;
-
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, StartRotation, transform.rotation.z));
         MonsterManager.MonsterHere = true;
-        int Random = UnityEngine.Random.Range(5, 10);
-        LeanTween.move(this.gameObject, new Vector3 (0, StartPositon, 0), Random).setEaseInQuint().setOnComplete(this.Arrived);;
-        lastRoutine = StartCoroutine(Heartbeat());
-       
-
-
-
+        GameEvents.OnDisplayHelp?.Invoke();
+       //Start Heartbeat
     }
 
 
@@ -96,7 +95,6 @@ public class Monster : MonoBehaviour
 
         GameEvents.OnLockButton.Invoke(false);
 
-
     }
     
 
@@ -105,8 +103,7 @@ public class Monster : MonoBehaviour
     public void OnPuzzleComplete()
     {
         var temp = StartCoroutine(Puzzle());
-        StopCoroutine(Heartbeat());
-        StopCoroutine(lastRoutine);
+
 
         GameEvents.OnHeartbeat?.Invoke(0);
     }
@@ -114,8 +111,7 @@ public class Monster : MonoBehaviour
 
     private IEnumerator Puzzle()
     {
-        StopCoroutine(Heartbeat());
-        StopCoroutine(lastRoutine);
+        //StopHeartbeat
 
         //transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, EndRotation, transform.rotation.z));
         LeanTween.rotate(gameObject, new Vector3(transform.rotation.x, EndRotation, transform.rotation.z), 2);
@@ -134,7 +130,18 @@ public class Monster : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    private void OnDestroy()
+    {
+        int Random = UnityEngine.Random.Range(0, 5);
+        if(PuzzleManager.CorrectAnswer == true)
+        {
+            GameEvents.OnReceiveVoice?.Invoke(Correct[Random]);
+        }
+        if (PuzzleManager.CorrectAnswer != true)
+        {
+            GameEvents.OnReceiveVoice?.Invoke(Incorrect[Random]);
+        }
+    }
 
 
     private IEnumerator Heartbeat()

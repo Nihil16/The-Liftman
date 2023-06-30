@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
+
+
+
+
     public static int Solution;
+
+    public static bool CorrectAnswer;
+
     private bool First = true;
+
 
     private void OnEnable()
     {
@@ -41,19 +49,22 @@ public class PuzzleManager : MonoBehaviour
 
         if (Answer == Solution)
         {
-            ElevatorNoiseManager.CorrectFloor = true;
+            
+            CorrectAnswer = true;
+            ElevatorNoiseManager.CorrectFloor = true; 
             Debug.Log("Correct");
             GameEvents.OnHelpManager?.Invoke(+1);
 
         }
         if (Answer != Solution)
         {
-            ElevatorNoiseManager.CorrectFloor = false ;
+            CorrectAnswer = false;
+            ElevatorNoiseManager.CorrectFloor = false;
             Debug.Log("Incorrect");
             if (First == false)
             {
                 GameEvents.OnHelpManager?.Invoke(-1);
-                
+
             }
             First = false;
         }

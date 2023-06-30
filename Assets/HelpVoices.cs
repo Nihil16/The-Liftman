@@ -4,32 +4,20 @@ using UnityEngine;
 
 public class HelpVoices : MonoBehaviour
 {
-    public AudioClip[] Correct;
-    public AudioClip[] Wrong;
-
-    public AudioClip[] MrGloom;
-    public AudioClip[] Smiley;
-    public AudioClip[] BottomHat;
-    public AudioClip[] Cory;
-    public AudioClip[] Hoodwink;
-
-
-
-
-
-
+    public AudioSource AudioS;
     private void OnEnable()
     {
-        GameEvents.OnPlayAudio += OnPlayAudio;
+        GameEvents.OnReceiveVoice += OnReceiveVoice;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnPlayAudio -= OnPlayAudio;
+        GameEvents.OnReceiveVoice -= OnReceiveVoice;
     }
 
-    public void OnPlayAudio(int ID)
+    public void OnReceiveVoice(AudioClip Audio)
     {
-
+        AudioS.clip = Audio;
+        AudioS.Play();
     }
 }

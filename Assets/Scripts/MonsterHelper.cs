@@ -5,6 +5,13 @@ using UnityEngine;
 public class MonsterHelper : MonoBehaviour
 {
     public int MonsterLiking;
+    public List<AudioClip> AudioClips;
+
+    private int GoodC = 0;
+    private int BadC = 0;
+    private int NeutralC = 0;
+
+
 
     private void OnEnable()
     {
@@ -21,18 +28,18 @@ public class MonsterHelper : MonoBehaviour
     {
         if((MonsterLiking == 0))
         {
-            Debug.Log("Intro");
-           
+            GameEvents.OnReceiveVoice?.Invoke(AudioClips[NeutralC]);
+            NeutralC++;
         }
         else if ((MonsterLiking == -1))
         {
-            Debug.Log("Helping");
-
+            GameEvents.OnReceiveVoice?.Invoke(AudioClips[GoodC]);
+            GoodC++;
         }
         else if ((MonsterLiking > 0))
         {
-            Debug.Log("I Like you");
-
+            GameEvents.OnReceiveVoice?.Invoke(AudioClips[BadC]);
+            BadC++;
         }
     }
     void OnHelpManager(int Num)

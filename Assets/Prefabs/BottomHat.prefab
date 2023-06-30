@@ -1108,6 +1108,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3185aa5a3e6bf7d428bc741a4370a65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Correct:
+  - {fileID: 8300000, guid: 272cca16007ed9549b0b24e0678ea59e, type: 3}
+  - {fileID: 8300000, guid: 678877a6f63000941a33c60dd317c9d0, type: 3}
+  - {fileID: 8300000, guid: 4f6e8f5501bcbe54ca6ae1ce279004b9, type: 3}
+  - {fileID: 8300000, guid: 903d60ab1b60f1d429220d6029dccb1a, type: 3}
+  - {fileID: 8300000, guid: bcf15d9169faafa40ac277226918e85b, type: 3}
+  - {fileID: 8300000, guid: 873c18e008232de4a8c98be204f7ada9, type: 3}
+  Incorrect:
+  - {fileID: 8300000, guid: 991fb6b06f8dd324987e8289bb75d363, type: 3}
+  - {fileID: 8300000, guid: eceaf42396bc16549921812bc8d4ba7b, type: 3}
+  - {fileID: 8300000, guid: 4609d77cad68ac9409013b98be46a698, type: 3}
+  - {fileID: 8300000, guid: 49b428a448539f24084f5a876f6894a1, type: 3}
+  - {fileID: 8300000, guid: b185dc8de97c7fc49a46a3a197e203ac, type: 3}
+  - {fileID: 8300000, guid: fceaa44bf190252468fd2dd0070f6a88, type: 3}
   StartRotation: -230
   FaceRotation: -230
   EndRotation: -10
@@ -1141,6 +1155,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonsterLiking: 0
+  AudioClips:
+  - {fileID: 8300000, guid: 0011b75c25bd7bf4488a5cbf9fbdc6e2, type: 3}
+  - {fileID: 8300000, guid: b19536d94d3da7b42b5c2ec833b58ecc, type: 3}
+  - {fileID: 8300000, guid: 3eb3f8df2716a3e46bd079d5529c264e, type: 3}
+  - {fileID: 8300000, guid: f7bebd899d48df2499bb5d7de6961f9e, type: 3}
+  - {fileID: 8300000, guid: 576a1570e19aded4ab3b68638145a9ae, type: 3}
+  - {fileID: 8300000, guid: 2f010014f52a5dd408b7c68878065756, type: 3}
 --- !u!1 &4150562214466435614
 GameObject:
   m_ObjectHideFlags: 0
