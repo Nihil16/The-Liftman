@@ -5,6 +5,7 @@ using UnityEngine;
 public class MonsterHelper : MonoBehaviour
 {
     public int MonsterLiking;
+
     public List<AudioClip> AudioClips;
 
     private int GoodC = 0;

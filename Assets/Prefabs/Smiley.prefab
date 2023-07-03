@@ -6707,6 +6707,16 @@ MonoBehaviour:
   - {fileID: 7229790725790004203}
   - {fileID: 7311983953112822470}
   myAnim: {fileID: 4251104604944200004}
+  AudioClips:
+  - {fileID: 8300000, guid: 5fc394238b2edc84e99a3ed63252eced, type: 3}
+  - {fileID: 8300000, guid: 489223e69d419a54bb10a7fbb378d23d, type: 3}
+  - {fileID: 8300000, guid: e1a0c5d93b7545d4a97acf68c3fb3360, type: 3}
+  - {fileID: 8300000, guid: ce607828886420c4081ece161d27bdfb, type: 3}
+  - {fileID: 8300000, guid: 0ed77efd3473bce4c83634c23f173aec, type: 3}
+  - {fileID: 8300000, guid: 30aa958526817284ba201aea6622369e, type: 3}
+  - {fileID: 8300000, guid: 2183f88ee04eeff4b815f1ba77ba9c9b, type: 3}
+  - {fileID: 8300000, guid: d4f9a1777f0230640ade1e7622bb05c4, type: 3}
+  - {fileID: 8300000, guid: bc05d4edb300c824c9fa259c3efed727, type: 3}
   Key: {fileID: 3967577336980254125}
 --- !u!95 &4251104604944200004
 Animator:

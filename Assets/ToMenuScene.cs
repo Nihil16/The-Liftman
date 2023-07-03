@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Key : MonoBehaviour
+public class ToMenuScene : MonoBehaviour
 {
-    private void OnMouseDown()
+    void Start()
     {
-        SceneManager.LoadScene(3);
-
+        SceneManager.LoadScene(0);
     }
+
 }

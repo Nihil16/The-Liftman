@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Horror Hotel.unity
     guid: 0e88605e01f23994f9b88fa8f88f13a2
+  - enabled: 1
+    path: Assets/Scenes/Good Ending.unity
+    guid: 14441a814e1d2df4683a42a90dcedf82
+  - enabled: 1
+    path: Assets/Scenes/Bad Ending 1.unity
+    guid: b0c9cb4dba0dd394dba8d51ad51c0015
   m_configObjects: {}

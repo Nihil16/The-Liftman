@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MonsterManager : MonoBehaviour
 {
     public List<GameObject> MonsterList;
     public static bool MonsterHere;
-    private int Count = 0;
+    public int Count = 0;
 
     private void OnEnable()
     {
@@ -25,8 +26,13 @@ public class MonsterManager : MonoBehaviour
         {
             Instantiate(MonsterList[Count], this.transform.position, quaternion.identity);
             Count++;
+            if(Count == 13)
+            {
+                SceneManager.LoadScene(4);
+            }
         }
-
+        
+        
 
     }
 }

@@ -7,6 +7,8 @@ public class Smiley : MonoBehaviour
     public List<GameObject> Teeth;
     public Animator myAnim;
 
+    public List<AudioClip> AudioClips;
+
     public GameObject Key;
 
     private int Random;
@@ -54,7 +56,10 @@ public class Smiley : MonoBehaviour
 
     public void OnDisplayPuzzle()
     {
-        Debug.Log("DO NOT LISTEN TO HIM GO TO FLOOR" + PuzzleManager.Solution);
+
+        GameEvents.OnReceiveVoice?.Invoke(AudioClips[PuzzleManager.Solution-1]);
+
+
         StartCoroutine(Open(PuzzleManager.Solution));
     }
 
