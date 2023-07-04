@@ -66,4 +66,7 @@ public class GameEvents : MonoBehaviour
 
     public delegate void OnSendVoice(AudioClip clip);
     public static OnSendVoice OnReceiveVoice;
+
+    public delegate void OnMonsterDestroyedDelegate(string Name, MonsterData MonsterData);
+    public static OnMonsterDestroyedDelegate OnMonsterDestroyed;
 }

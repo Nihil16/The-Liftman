@@ -6750,7 +6750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 871cb53d392420e4cb039bfcd4d648fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterLiking: 0
   AudioClips:
   - {fileID: 8300000, guid: aafc5f262687013428f1f4ad6e75a64b, type: 3}
   - {fileID: 8300000, guid: 70d09576779890c48960b58e53901f5e, type: 3}
@@ -6758,6 +6757,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9935abfafd7ba8c4fbf0567b0024b79b, type: 3}
   - {fileID: 8300000, guid: a46a1ac7360439044a654f2ab12613ff, type: 3}
   - {fileID: 8300000, guid: ce7ac650f6529244884f4a23871a350e, type: 3}
+  MonsterData: {fileID: 11400000, guid: daa84bcbfa0d9064fba16a9ef5013aff, type: 2}
 --- !u!1 &9220101235492360853
 GameObject:
   m_ObjectHideFlags: 0
