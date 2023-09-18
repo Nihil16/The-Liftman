@@ -18,6 +18,7 @@ public class HelpVoices : MonoBehaviour
     public void OnReceiveVoice(AudioClip Audio)
     {
         AudioS.clip = Audio;
+        Debug.Log("This will work");
         AudioS.Play();
     }
 }

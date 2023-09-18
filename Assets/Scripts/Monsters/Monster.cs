@@ -33,15 +33,16 @@ public class Monster : MonoBehaviour
 
     void Start()
     {
-        
+        GameEvents.OnDisplayHelp?.Invoke();
         int Random = UnityEngine.Random.Range(5, 10);
         LeanTween.move(this.gameObject, new Vector3(0, StartPositon, 0), Random).setEaseInQuint().setOnComplete(this.Arrived); ;
 
         ElevatorNoiseManager.intro = false;
         transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, StartRotation, transform.rotation.z));
         MonsterManager.MonsterHere = true;
-        GameEvents.OnDisplayHelp?.Invoke();
-       //Start Heartbeat
+        
+        
+        //Start Heartbeat
     }
 
 

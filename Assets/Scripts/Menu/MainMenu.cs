@@ -64,7 +64,7 @@ public class MainMenu : MonoBehaviour
         Credits.SetActive(true);
         Credits2.SetActive(false);
         Exit.SetActive(true);
-        Shop.SetActive(true);
+        Shop.SetActive(false);
         Back.SetActive(false);
         QuitButton.SetActive(true);
         Item1.SetActive(false);

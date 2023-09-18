@@ -87,6 +87,7 @@ public class MonsterHelper : MonoBehaviour
         {
             GameEvents.OnReceiveVoice?.Invoke(AudioClips[MonsterNeutralVoice]);
             MonsterNeutralVoice++;
+            
         }
         else if ((MonsterLike == -1))
         {
@@ -111,5 +112,7 @@ public class MonsterHelper : MonoBehaviour
             (MonsterLike) ++;
         }
     }
+
+
 
 }

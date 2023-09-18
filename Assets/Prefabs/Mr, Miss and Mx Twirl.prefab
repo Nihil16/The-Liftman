@@ -1043,7 +1043,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 48354fcab9008c947aac10e5fd86ddaf, type: 3}
   - {fileID: 8300000, guid: c8327a4320c591b41922ec99ce989fd6, type: 3}
   - {fileID: 8300000, guid: 155f9d50a2cf9ff4d9f749d167073d7f, type: 3}
+  MonsterName: 4
   MonsterData: {fileID: 11400000, guid: daa84bcbfa0d9064fba16a9ef5013aff, type: 2}
+  MonsterLike: 0
+  MonsterGoodVoice: 0
+  MonsterBadVoice: 0
+  MonsterNeutralVoice: 0
 --- !u!1 &1676436983171062680
 GameObject:
   m_ObjectHideFlags: 0
